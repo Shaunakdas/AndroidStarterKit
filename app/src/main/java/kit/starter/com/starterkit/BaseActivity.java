@@ -1,7 +1,9 @@
 package kit.starter.com.starterkit;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -20,22 +22,29 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import kit.starter.com.starterkit.db.DaoSession;
+import kit.starter.com.starterkit.db.User;
+import kit.starter.com.starterkit.db.UserDao;
+
 public class BaseActivity extends AppCompatActivity {
     TextView mTextView;
 
     final String contentType = "application/json; charset=utf-8";
+
+    UserDao userDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         mTextView = (TextView) findViewById(R.id.response_text);
-//        postResponseJsonObjectGson();
         getDaoNote();
+        getResponseJsonObjectGson();
     }
     //For using Dao for db interaction
     protected void getDaoNote(){
         // get the note DAO
-
+        DaoSession daoSession = ((AppController) getApplication()).getDaoSession();
+        userDao = daoSession.getUserDao();
     }
 
     //For getting response through volley. Using Volley default ResponseQueue and display response as text
@@ -151,6 +160,14 @@ public class BaseActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         Book book = gson.fromJson(response.toString(),Book.class);
                         mTextView.setText("Response: " + book.getBookId());
+
+                        //For Dao usage only. You can comment if not integrated Dao
+                        User user = new User();
+                        user.setFirst_name(book.getAuthor());
+                        user.setLast_name(book.getTitle());
+                        userDao.insert(user);
+                        Log.d("BaseActivity", "Inserted new note, ID: " + user.getId());
+                        mTextView.setText("DB Added: " + user.getId());
                     }
                 }, new Response.ErrorListener() {
 
