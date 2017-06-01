@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,14 +17,19 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BaseActivity extends AppCompatActivity {
     TextView mTextView;
+
+    final String contentType = "application/json; charset=utf-8";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         mTextView = (TextView) findViewById(R.id.response_text);
-        getResponseJsonObjectGson();
+        postResponseJsonObjectGson();
     }
     //For getting response through volley. Using Volley default ResponseQueue and display response as text
     protected void getResponseString() {
@@ -79,6 +85,52 @@ public class BaseActivity extends AppCompatActivity {
         queue.add(jsObjRequest);
     }
     //For getting response through volley. Using Volley default ResponseQueue and display response handled from gson
+    protected void postResponseJsonObjectGson() {
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://ee9a0bd2.ngrok.io/posts";
+        final Gson gson = new Gson();
+        final JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("title","new-json-server");
+            jsonObject.put("author","new-author");
+        }
+        catch (JSONException e) {
+            mTextView.setText("That didn't work:JSON Exception!");
+        }
+        // Request a string response from the provided URL.
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Book book = gson.fromJson(response.toString(),Book.class);
+                        mTextView.setText("Response: " + book.getBookId());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mTextView.setText("That didn't work!");
+                    }
+                }){
+            /**
+             * Add the headers to the request
+             * @return headers
+             * @throws AuthFailureError
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+
+        };
+        // Add the request to the RequestQueue.
+        queue.add(jsObjRequest);
+    }
+    //For getting response through volley. Using Volley default ResponseQueue and display response handled from gson
     protected void getResponseJsonObjectGson() {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -90,8 +142,8 @@ public class BaseActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                            Book book = gson.fromJson(response.toString(),Book.class);
-                            mTextView.setText("Response: " + book.getAuthor());
+                        Book book = gson.fromJson(response.toString(),Book.class);
+                        mTextView.setText("Response: " + book.getBookId());
                     }
                 }, new Response.ErrorListener() {
 

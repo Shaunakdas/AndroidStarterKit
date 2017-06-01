@@ -21,5 +21,8 @@ public class Book {
     public String getAuthor(){
         return this.author;
     }
+    public String getBookId(){
+        return this.id;
+    }
 
 }
