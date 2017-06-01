@@ -29,8 +29,15 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         mTextView = (TextView) findViewById(R.id.response_text);
-        postResponseJsonObjectGson();
+//        postResponseJsonObjectGson();
+        getDaoNote();
     }
+    //For using Dao for db interaction
+    protected void getDaoNote(){
+        // get the note DAO
+
+    }
+
     //For getting response through volley. Using Volley default ResponseQueue and display response as text
     protected void getResponseString() {
         // Instantiate the RequestQueue.
@@ -130,7 +137,7 @@ public class BaseActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(jsObjRequest);
     }
-    //For getting response through volley. Using Volley default ResponseQueue and display response handled from gson
+    //For posting json request and getting response through volley. Using Volley default ResponseQueue and display response handled from gson
     protected void getResponseJsonObjectGson() {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
