@@ -50,13 +50,20 @@ Explain what these tests test and why
 Give an example
 ```
 
-### And coding style tests
+### Activity Examples Included
 
-Explain what these tests test and why
+* Login Activity
+	1) mayRequestContacts to request Contacts list to pickup email
+	2) attemptLogin to check for valid input in email and passwrod
+* Navigation Drawer Activity -NavTrialActivity
+activity_nav_trial.xml contains NavigationView which contains 2 blocks. 
+	1) HeaderLayout provded by nav_header_nav_trial
+	2) Menu options provided by activity_nav_trial_drawer
+app_bar_nav_trial.xml contains 
+	1) AppBarLayout contains Toolbar visible on top
+	2) content_nav_trial.xml(Costraint Layout) contains the center content - *This is the layout that we will replace on each navigation button select*
+	3) FloatingActionButton visible in the bottom
 
-```
-Give an example
-```
 
 ## Deployment
 
@@ -64,10 +71,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [GreenDao Tutorial](https://www.codementor.io/sundayakinsete/integrating-greendao-into-your-android-application-yro5fzgtw) - Integrating greenDAO Database Manager
 * [Volley Tutorial](https://developer.android.com/training/volley/index.html) - Integrating Volley Network Handler
-* [JSONObject Get Call](https://developer.android.com/training/volley/request.html) - 
+* [Volley Get JSONObject tutorial](https://developer.android.com/training/volley/request.html) - Get Call using JSONObject and Volley
 * [Volley Post JSON example](https://stackoverflow.com/questions/43605793/volley-post-json-using-string-request) 
 
 ## Contributing
