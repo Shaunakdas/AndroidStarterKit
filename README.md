@@ -63,6 +63,8 @@ app_bar_nav_trial.xml contains
 	1) AppBarLayout contains Toolbar visible on top
 	2) content_nav_trial.xml(Costraint Layout) contains the center content - *This is the layout that we will replace on each navigation button select*
 	3) FloatingActionButton visible in the bottom
+* Article Fragment
+
 
 
 ## Deployment

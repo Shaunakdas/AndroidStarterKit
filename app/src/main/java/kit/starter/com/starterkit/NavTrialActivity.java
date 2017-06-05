@@ -28,6 +28,7 @@ public class NavTrialActivity extends AppCompatActivity
         setContentView(R.layout.activity_nav_trial);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.collapseActionView();
 
         //Floating Action Button. Remove if not needed
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -119,6 +120,7 @@ public class NavTrialActivity extends AppCompatActivity
     //For interacting with Fragments
     @Override
     public void onFragmentInteraction(Uri uri) {
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
     }
 }
