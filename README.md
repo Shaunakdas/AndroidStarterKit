@@ -64,6 +64,7 @@ app_bar_nav_trial.xml contains
 	2) content_nav_trial.xml(Costraint Layout) contains the center content - *This is the layout that we will replace on each navigation button select*
 	3) FloatingActionButton visible in the bottom
 * Article Fragment
+	1) Added MPAndroidChart inside onCreateView
 
 
 
@@ -77,6 +78,7 @@ Add additional notes about how to deploy this on a live system
 * [Volley Tutorial](https://developer.android.com/training/volley/index.html) - Integrating Volley Network Handler
 * [Volley Get JSONObject tutorial](https://developer.android.com/training/volley/request.html) - Get Call using JSONObject and Volley
 * [Volley Post JSON example](https://stackoverflow.com/questions/43605793/volley-post-json-using-string-request) 
+* [MPAndroidChart Wiki](https://github.com/PhilJay/MPAndroidChart/wiki/Getting-Started) Code samples for MPAndroidChart
 
 ## Contributing
 
