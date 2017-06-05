@@ -8,10 +8,16 @@ These instructions will get you a copy of the starter project up and running on 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+For testing Starter Kit, you need following:
+* [JSON Server](https://github.com/typicode/json-server) - Fake API server to server mobile app
 
 ```
-Give examples
+json-server --watch db.json --port 3004
+```
+* [Ngrok](https://ngrok.com/) - Secure tunnels to localhost for giving access of localhost to mobile
+
+```
+ngrok http 80
 ```
 
 ### Installing
@@ -59,7 +65,10 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [GreenDao Tutorial](https://www.codementor.io/sundayakinsete/integrating-greendao-into-your-android-application-yro5fzgtw) - Integrating greenDAO into your Android Application
+* [GreenDao Tutorial](https://www.codementor.io/sundayakinsete/integrating-greendao-into-your-android-application-yro5fzgtw) - Integrating greenDAO Database Manager
+* [Volley Tutorial](https://developer.android.com/training/volley/index.html) - Integrating Volley Network Handler
+* [JSONObject Get Call](https://developer.android.com/training/volley/request.html) - 
+* [Volley Post JSON example](https://stackoverflow.com/questions/43605793/volley-post-json-using-string-request) 
 
 ## Contributing
 
