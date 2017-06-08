@@ -70,6 +70,14 @@ app_bar_nav_trial.xml contains
 	2) MyPagerAdapter (instanceOf(FragmentPagerAdapter)) contains fragmentManager, getItem and getCount
 	3) layout_swipe_view has ref. to content_swipe_view . Which has ViewPager xml and inside it, PagerTabStrip referring to current Tab
 	4) FirstFragment and Second Fragment which just has textview only.
+* RecyclerView Activity
+	1) Contact Class to define Data attribute
+	2) activity_users.xml to create hold RecyclerView parent View
+	3) item_contact.xml to hold view of each item
+	4) ContactsAdapter class to handle view management
+	5) ContactsAdapter.ViewHolder class within ContactsAdapter class to define ViewHolder and its constructor
+	6) onCreateViewHolder method binds item_contact.xml to ViewHolder
+	7) onBindViewHolder method to bind Data with ViewHolder
 
 
 
@@ -84,7 +92,9 @@ Add additional notes about how to deploy this on a live system
 * [Volley Get JSONObject tutorial](https://developer.android.com/training/volley/request.html) - Get Call using JSONObject and Volley
 * [Volley Post JSON example](https://stackoverflow.com/questions/43605793/volley-post-json-using-string-request) 
 * [MPAndroidChart Wiki](https://github.com/PhilJay/MPAndroidChart/wiki/Getting-Started) Code samples for MPAndroidChart
-* [ViewPager with Fragments](https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter)
+* [ViewPager with Fragments](https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter) Code Samples for creating ViewPager using Fragments
+* [RecyclerView](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView) RecyclerView example Basic
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
