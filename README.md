@@ -65,6 +65,11 @@ app_bar_nav_trial.xml contains
 	3) FloatingActionButton visible in the bottom
 * Article Fragment
 	1) Added MPAndroidChart inside onCreateView
+* Swipe View Activity
+	1) SwipeViewAcitivy contains FragmentPagerAdapter instance and original static class.
+	2) MyPagerAdapter (instanceOf(FragmentPagerAdapter)) contains fragmentManager, getItem and getCount
+	3) layout_swipe_view has ref. to content_swipe_view . Which has ViewPager xml and inside it, PagerTabStrip referring to current Tab
+	4) FirstFragment and Second Fragment which just has textview only.
 
 
 
@@ -79,7 +84,7 @@ Add additional notes about how to deploy this on a live system
 * [Volley Get JSONObject tutorial](https://developer.android.com/training/volley/request.html) - Get Call using JSONObject and Volley
 * [Volley Post JSON example](https://stackoverflow.com/questions/43605793/volley-post-json-using-string-request) 
 * [MPAndroidChart Wiki](https://github.com/PhilJay/MPAndroidChart/wiki/Getting-Started) Code samples for MPAndroidChart
-
+* [ViewPager with Fragments](https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter)
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
